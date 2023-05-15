@@ -1,0 +1,71 @@
+@mixin devices($breakpoint) {
+  @if $breakpoint == laptop {
+    @media only screen and (min-width: 1000px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: 1000px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  }
+}
+.todo-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  .todo-card {
+    background-color: var(--color-1);
+    min-height: 90vh;
+    .icons {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      a {
+        color: var(--color-2);
+        &:hover {
+          color: var(--color-2-hover);
+        }
+      }
+      .edit-button {
+        display: block;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: var(--color-2);
+        &:hover {
+          color: var(--color-2-hover);
+        }
+      }
+    }
+  }
+  .green .icons {
+    a {
+      color: var(--color-3);
+
+      &:hover {
+        color: var(--color-3-hover);
+      }
+    }
+    .edit-button {
+      color: var(--color-3);
+      &:hover {
+        color: var(--color-3-hover);
+      }
+    }
+  }
+}
+@include devices(tablet) {
+  .todo-detail .todo-card {
+    width: 80%;
+  }
+}

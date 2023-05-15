@@ -1,0 +1,51 @@
+@mixin devices($breakpoint) {
+  @if $breakpoint == laptop {
+    @media only screen and (min-width: 1000px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: 1000px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  }
+}
+.todo-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  .left {
+    width: 40vw;
+    input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+    }
+  }
+  .right {
+    width: 20vw;
+    button {
+      height: 100%;
+      width: 100%;
+      border: none;
+      background-color: var(--color-2);
+      color: var(--color-1);
+      cursor: pointer;
+      transition: var(--hover-transition);
+      &:hover {
+        background-color: var(--color-2-hover);
+      }
+    }
+  }
+}
+@include devices(tablet) {
+  .todo-form .left {
+    width: 70vw;
+  }
+}

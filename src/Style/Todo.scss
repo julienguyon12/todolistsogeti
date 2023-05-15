@@ -1,0 +1,65 @@
+@mixin devices($breakpoint) {
+  @if $breakpoint == laptop {
+    @media only screen and (min-width: 1000px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: 1000px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  }
+}
+.todo {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-1);
+  order: 2;
+  border: solid 3px var(--color-2);
+  a {
+    display: flex;
+    align-items: center;
+    width: 40vw;
+    height: 100%;
+    padding: 10px;
+    min-height: 80px;
+    transition: var(--hover-transition);
+    &:hover {
+      background-color: var(--color-2);
+    }
+  }
+  .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 20vw;
+    padding: 10px;
+  }
+}
+
+.completed {
+  order: 1;
+  background-color: var(--color-3);
+  border: solid 3px var(--color-3);
+  a {
+    text-decoration: line-through;
+    &:hover {
+      background-color: var(--color-3-hover);
+    }
+  }
+}
+@include devices(tablet) {
+  .todo {
+    a {
+      width: 70vw;
+    }
+  }
+}
