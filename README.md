@@ -1,6 +1,7 @@
 # TodoList
 
 This Todo List application is developed using React and SCSS. It allows users to create, view, update, and delete tasks.
+<br>
 ![TodoList interface](/public/demo.gif)
 
 ## Main features
