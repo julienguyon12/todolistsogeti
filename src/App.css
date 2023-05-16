@@ -21,7 +21,8 @@ a {
   text-decoration: none;
   color: var(--color-5);
 }
-input {
+input,
+textarea {
   font-family: var(--body-font);
   color: var(--color-5);
 }

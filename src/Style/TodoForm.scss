@@ -1,17 +1,6 @@
 @mixin devices($breakpoint) {
-  @if $breakpoint == laptop {
-    @media only screen and (min-width: 1000px) {
-      @content;
-    }
-  }
   @if $breakpoint == tablet {
     @media only screen and (max-width: 1000px) {
-      @content;
-    }
-  }
-
-  @if $breakpoint == mobile {
-    @media only screen and (max-width: 768px) {
       @content;
     }
   }
@@ -23,6 +12,11 @@
   .left {
     width: 40vw;
     input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+    }
+    textarea {
       width: 100%;
       padding: 10px;
       border: none;

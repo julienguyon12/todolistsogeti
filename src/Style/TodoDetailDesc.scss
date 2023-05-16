@@ -1,17 +1,6 @@
 @mixin devices($breakpoint) {
-  @if $breakpoint == laptop {
-    @media only screen and (min-width: 1000px) {
-      @content;
-    }
-  }
   @if $breakpoint == tablet {
     @media only screen and (max-width: 1000px) {
-      @content;
-    }
-  }
-
-  @if $breakpoint == mobile {
-    @media only screen and (max-width: 768px) {
       @content;
     }
   }
@@ -27,9 +16,12 @@
       font-size: 40px;
       border-bottom: solid 1px var(--color-5);
       color: var(--color-2);
+      word-break: break-word;
     }
     p {
       margin: 20px;
+      word-break: break-word;
+      color: var(--color-8);
     }
   }
   .right {

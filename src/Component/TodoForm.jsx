@@ -12,11 +12,10 @@ const TodoForm = ({ setValueTitle, setValueDescription, createTodo }) => {
           placeholder='Titre'
           onChange={(e) => setValueTitle(e.target.value)}
         ></input>
-        <input
-          type='text'
+        <textarea
           placeholder='Description'
           onChange={(e) => setValueDescription(e.target.value)}
-        ></input>
+        ></textarea>
       </div>
       <div className='right'>
         <button type='submit'>

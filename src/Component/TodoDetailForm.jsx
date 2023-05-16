@@ -28,12 +28,12 @@ const TodoDetailForm = ({
             onChange={(e) => setTitle(e.target.value)}
             className='title'
           ></input>
-          <input
+          <textarea
             type='text'
             placeholder={item.desc}
             onChange={(e) => setDescription(e.target.value)}
             className='desc'
-          ></input>
+          ></textarea>
         </div>
         <div className='right'>
           <CheckBox

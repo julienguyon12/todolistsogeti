@@ -37,6 +37,8 @@ const Home = () => {
 
     //reset Form
     e.target.reset();
+    setValueDescription();
+    setValueTitle();
 
     setTodoList([...todoList, item]);
     localStorage.setItem('todoList', JSON.stringify([...todoList, item]));
