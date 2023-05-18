@@ -22,7 +22,6 @@ const TodoDetail = () => {
     const items = todoList.filter((task) => {
       return task.id === idItem;
     });
-    console.log(items);
     if (items.length === 0) {
       navigate('/NotFound');
     } else {
