@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../Style/Todo.scss';
 import { Link } from 'react-router-dom';
 import ButtonDelete from './ButtonDelete';
 import CheckBox from './CheckBox';
+import { AppContext } from '../App';
 
-const Todo = ({ item, deleteTodoItem, updateCheckBox }) => {
+const Todo = ({ item }) => {
+  const { todoList, setTodoList } = useContext(AppContext);
+
+  const updateCheckBox = (id) => {
+    const updatedList = todoList.map((task) => {
+      if (task.id === id) {
+        return { ...task, achieved: !task.achieved };
+      }
+      return task;
+    });
+
+    setTodoList(updatedList);
+    localStorage.setItem('todoList', JSON.stringify(updatedList));
+  };
   return (
     <div className={`todo${item.achieved ? ' completed' : ''}`} key={item.id}>
       <Link to={{ pathname: `/todo/${item.id}` }}>
@@ -18,7 +32,7 @@ const Todo = ({ item, deleteTodoItem, updateCheckBox }) => {
           updateCheckBox={updateCheckBox}
           param={item.id}
         />
-        <ButtonDelete deleteTodoItem={deleteTodoItem} item={item} />
+        <ButtonDelete item={item} />
       </div>
     </div>
   );

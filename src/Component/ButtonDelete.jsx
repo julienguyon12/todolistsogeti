@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import '../Style/ButtonDelete.scss';
-const ButtonDelete = ({ deleteTodoItem, item }) => {
+import { AppContext } from '../App';
+
+const ButtonDelete = ({ item }) => {
+  const { todoList, setTodoList } = useContext(AppContext);
+
+  const deleteTodoItem = () => {
+    const updatedList = todoList.filter((task) => {
+      return task.id !== item.id;
+    });
+
+    setTodoList(updatedList);
+    localStorage.setItem('todoList', JSON.stringify(updatedList));
+  };
+
   return (
-    <button onClick={() => deleteTodoItem(item.id)} className='button-delete'>
+    <button onClick={deleteTodoItem} className='button-delete'>
       <DeleteIcon />
     </button>
   );
